@@ -84,6 +84,8 @@ public:
 	{
 		this->x += location.x;
 		this->y += location.y;
+
+		return *this;
 	}
 	Vector2D& operator -=(const Vector2D& location)
 	{
