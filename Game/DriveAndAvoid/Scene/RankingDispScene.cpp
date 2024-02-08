@@ -14,7 +14,7 @@ RankingDispScene::~RankingDispScene()
 void RankingDispScene::Initialize()
 {
 	//画像の読み込み
-	background_image = LoadGraph("Resource/images/Ranking");
+	background_image = LoadGraph("Resource/images/Ranking.bmp");
 
 	//エラーチェック
 	if (background_image == -1)
@@ -49,8 +49,7 @@ void RankingDispScene::Draw() const
 	//取得したランキングデータを描画する
 	for (int i = 0; i < 5; i++)
 	{
-		DrawFormatString(50, 170 + 1 * 25, 0xffffff, "2%d %-15s %6d",
-			ranking->GetRank(i), ranking->GetName(i), ranking->GetScore(i));
+		DrawFormatString(50, 170 + i * 25, 0xffffff, "%2d %-15s %6d", ranking->GetRank(i), ranking->GetName(i), ranking->GetScore(i));
 	}
 }
 

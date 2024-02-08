@@ -116,7 +116,7 @@ eSceneType GameMainScene::Update()
 	}
 
 	//プレイヤーの燃料科体力が０未満なら、リザルトに遷移する
-	if (player->GetFuel() < 0.0f || player->GetHp(), 0.0f)
+	if (player->GetFuel() < 0.0f || player->GetHp() < 0.0f)
 	{
 		return eSceneType::E_RESULT;
 	}
@@ -160,8 +160,7 @@ void GameMainScene::Draw() const
 	DrawFormatString(510, 200, GetColor(0, 0, 0), "走行距離");
 	DrawFormatString(555, 220, GetColor(255, 255, 255), "%08d",mileage/10);
 	DrawFormatString(510, 240, GetColor(0, 0, 0), "スピード");
-	DrawFormatString(555, 260, GetColor(255, 255, 255), "%08.1f",
-		player->GetSpeed());
+	DrawFormatString(555, 260, GetColor(255, 255, 255), "%08.1f",player->GetSpeed());
 
 	//バリア枚数の描画
 	for (int i = 0; i < player->GetBarriarCount(); i++) {
@@ -170,11 +169,10 @@ void GameMainScene::Draw() const
 	}
 
 	//燃料ゲージの描画
-	float fx = 520.0f;
+	float fx = 510.0f;
 	float fy = 390.0f;
 	DrawFormatStringF(fx, fy, GetColor(0, 0, 0), "FUEL METER");
-	DrawBoxAA(fx, fy + 20.0f, fx + (player->GetFuel() * 100 / 20000), fx +
-		40.0f, GetColor(0, 102, 204), TRUE);
+	DrawBoxAA(fx, fy + 20.0f, fx + (player->GetFuel() * 100 / 20000), fy + 40.0f, GetColor(0, 102, 204), TRUE);
 	DrawBoxAA(fx, fy + 20.0f, fx + 100.0f, fy + 40.0f, GetColor(0, 0, 0), FALSE);
 
 	//体力ゲージの描画
@@ -182,8 +180,7 @@ void GameMainScene::Draw() const
 	fy = 430.0f;
 
 	DrawFormatStringF(fx, fy, GetColor(0, 0, 0), "PLAYER HP");
-	DrawBoxAA(fx, fy + 20.0f, fx + (player->GetHp() * 100 / 1000), fx +
-		40.0f, GetColor(255, 0, 0), TRUE);
+	DrawBoxAA(fx, fy + 20.0f, fx + (player->GetHp() * 100 / 1000), fy + 40.0f, GetColor(255, 0, 0), TRUE);
 	DrawBoxAA(fx, fy + 20.0f, fx + 100.0f, fy + 40.0f, GetColor(0, 0, 0), FALSE);
 }
 

@@ -18,7 +18,7 @@ RankingInputScene::~RankingInputScene()
 void RankingInputScene::Initialize()
 {
 	//画像の読み込み
-	background_image = LoadGraph("Resource/image/Ranking.bmp");
+	background_image = LoadGraph("Resource/images/Ranking.bmp");
 
 	//エラーチェック
 	if (background_image == -1)
@@ -99,19 +99,13 @@ void RankingInputScene::Draw() const
 	{
 		int x = cursor_x * font_size + 10;
 		int y = cursor_y * font_size + 295;
-		DrawBox(x, y, x + font_size, y + font_size, GetColor(255, 255, 255),
-			FALSE);
+		DrawBox(x, y, x + font_size, y + font_size, GetColor(255, 255, 255), FALSE);
 	}
 	else
 	{
 		if (cursor_x == 0)
 		{
-			DrawBox(35, 400, 35 + font_size * 2, 400 + font_size,
-				GetColor(255, 255, 255), FALSE);
-		}
-		{
-			DrawBox(0, 0, font_size, font_size, GetColor(255, 255, 255),FALSE);
-
+			DrawBox(35, 400, 35 + font_size * 2, 400 + font_size, GetColor(255, 255, 255), FALSE);
 		}
 	}
 }
@@ -201,7 +195,7 @@ bool RankingInputScene::InputName()
 		{
 			if (cursor_x == 0)
 			{
-				name[name_num] = '\n';
+				name[name_num] = '\0';
 				return true;
 			}
 			else

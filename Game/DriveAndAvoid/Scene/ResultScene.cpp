@@ -20,12 +20,12 @@ void ResultScene::Initialize()
 {
 	//画面の読み込み
 	back_ground = LoadGraph("Resource/images/back.bmp");
-	int result = LoadDivGraph("Resource/image/car.bmp", 3, 3, 1, 63, 120, enemy_image);
+	int result = LoadDivGraph("Resource/images/car.bmp", 3, 3, 1, 63, 120, enemy_image);
 
 	//エラーチェック
 	if (back_ground == -1)
 	{
-		throw ("Resource/images/back.bmpがありません\n");
+		throw("Resource/images/back.bmpがありません\n");
 	}
 	if (result == -1)
 	{
@@ -72,7 +72,7 @@ void ResultScene::Draw() const
 			enemy_count[i], (i + 1) * 50, (i + 1) * 50 * enemy_count[i]);
 	}
 	DrawString(180, 290, "スコア", GetColor(0, 0, 0));
-	DrawFormatString(180, 290, 0xFFFFFF, "=%6d", score);
+	DrawFormatString(180, 290, 0xFFFFFF, "          =%6d", score);
 }
 
 //終了時処理

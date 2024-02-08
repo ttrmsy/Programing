@@ -10,7 +10,7 @@ RankingData::RankingData()
 		rank[i] = NULL;
 		for (int j = 0; j < 15; j++)
 		{
-			name[i][j] = '\n';
+			name[i][j] = '\0';
 		}
 	}
 }
@@ -113,7 +113,7 @@ void RankingData::SortData()
 
 	for (int i = 0; i < 5; i++)
 	{
-		for (int j = i; j < 6; i++)
+		for (int j = i + 1; j < 6; j++)
 		{
 			if (score[i] > score[j])
 			{

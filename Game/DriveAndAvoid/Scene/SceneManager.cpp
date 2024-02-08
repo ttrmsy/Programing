@@ -149,7 +149,7 @@ void SceneManager::ChangeScene(eSceneType scene_type)
 	new_scene->Initialize();
 
 	//現在シーンの更新
-	current_scene - new_scene;
+	current_scene = new_scene;
 }
 
 //シーン生成処理
